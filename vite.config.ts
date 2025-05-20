@@ -40,6 +40,8 @@ export default defineConfig(({ mode }) => ({
         },
         preserveModules: true,
         preserveModulesRoot: 'src',
+        entryFileNames: '[name].js',
+        chunkFileNames: '[name].js',
       },
     },
   },
