@@ -17,11 +17,13 @@ export default defineConfig(({ mode }) => ({
     componentTagger(),
     dts({
       include: ['src/components/shared/**/*.{ts,tsx}'],
-      exclude: ['**/*.test.tsx', '**/*.stories.tsx'],
+      exclude: ['**/*.test.tsx', '**/*.stories.tsx', '*.config.js', '*.config.ts'],
       outDir: 'dist/types',
       rollupTypes: true, // Consolidate types
       staticImport: true, // Convert dynamic imports to static for better type generation
       insertTypesEntry: true, // Automatically add types field to package.json
+      skipDiagnostics: true, // Skip TypeScript diagnostics for faster builds
+      aliasesExclude: [/^@microsoft\//, /eslint/], // Exclude specific modules
     }),
   ].filter(Boolean),
   build: {
