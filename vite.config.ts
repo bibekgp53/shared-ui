@@ -22,8 +22,6 @@ export default defineConfig(({ mode }) => ({
       rollupTypes: true, // Consolidate types
       staticImport: true, // Convert dynamic imports to static for better type generation
       insertTypesEntry: true, // Automatically add types field to package.json
-      skipDiagnostics: true, // Skip TypeScript diagnostics for faster builds
-      aliasesExclude: [/^@microsoft\//, /eslint/], // Exclude specific modules
     }),
   ].filter(Boolean),
   build: {
