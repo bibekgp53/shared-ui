@@ -15,7 +15,8 @@
     ".": {
       "import": "../../dist/shared-ui.es.js",
       "types": "../../dist/types/components/shared/index.d.ts"
-    }
+    },
+    "./package.json": "./package.json"
   },
   "peerDependencies": {
     "react": "^18.0.0",

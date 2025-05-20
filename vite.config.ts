@@ -19,6 +19,9 @@ export default defineConfig(({ mode }) => ({
       include: ['src/components/shared/**/*.{ts,tsx}'],
       exclude: ['**/*.test.tsx', '**/*.stories.tsx'],
       outDir: 'dist/types',
+      rollupTypes: true, // Consolidate types
+      staticImport: true, // Convert dynamic imports to static for better type generation
+      insertTypesEntry: true, // Automatically add types field to package.json
     }),
   ].filter(Boolean),
   build: {
