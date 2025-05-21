@@ -3,6 +3,7 @@ import { defineConfig } from "vite";
 import react from "@vitejs/plugin-react-swc";
 import path from "path";
 import dts from 'vite-plugin-dts';
+import { componentTagger } from "lovable-tagger";
 
 // https://vitejs.dev/config/
 export default defineConfig(({ mode }) => ({
@@ -12,6 +13,7 @@ export default defineConfig(({ mode }) => ({
   },
   plugins: [
     react(),
+    mode === 'development' && componentTagger(),
     dts({
       include: ['src/components/**/*.{ts,tsx}'],
       exclude: ['**/*.test.tsx', '**/*.stories.tsx', '*.config.js', '*.config.ts', 'eslint.config.js', '**/node_modules/**'],
@@ -21,7 +23,7 @@ export default defineConfig(({ mode }) => ({
       insertTypesEntry: true, // Automatically add types field to package.json
       tsconfigPath: path.resolve(__dirname, './src/components/tsconfig.json'),
     }),
-  ],
+  ].filter(Boolean),
   build: {
     lib: {
       entry: path.resolve(__dirname, 'src/components/index.ts'),
