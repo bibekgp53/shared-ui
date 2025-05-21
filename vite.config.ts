@@ -12,7 +12,12 @@ export default defineConfig(({ mode }) => ({
     port: 8080,
   },
   plugins: [
-    react(),
+    react({
+      jsxImportSource: 'react',
+      plugins: [
+        { name: 'swc-jsx-reactjs-19', transform: (code) => code }
+      ]
+    }),
     mode === 'development' && componentTagger(),
     dts({
       include: ['src/components/**/*.{ts,tsx}'],
