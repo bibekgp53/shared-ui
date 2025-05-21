@@ -34,6 +34,7 @@ export default defineConfig(({ mode }) => ({
     },
     minify: false,
     sourcemap: true,
+    emptyOutDir: true, // Clear the output directory before building
     rollupOptions: {
       external: ['react', 'react-dom', 'react/jsx-runtime'],
       output: {
