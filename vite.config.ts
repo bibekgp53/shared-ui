@@ -18,7 +18,7 @@ export default defineConfig(({ mode }) => ({
       include: ['src/components/**/*.{ts,tsx}'],
       exclude: ['**/*.test.tsx', '**/*.stories.tsx', '*.config.js', '*.config.ts', 'eslint.config.js', '**/node_modules/**'],
       outDir: 'dist/types',
-      rollupTypes: true, // Consolidate types
+      rollupTypes: false, // Set to false to prevent consolidating types
       staticImport: true, // Convert dynamic imports to static for better type generation
       insertTypesEntry: true, // Automatically add types field to package.json
       tsconfigPath: path.resolve(__dirname, './src/components/tsconfig.json'),
