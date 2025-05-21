@@ -34,6 +34,7 @@ export default defineConfig(({ mode }) => ({
     },
     minify: false,
     sourcemap: true,
+    emptyOutDir: true, // Clear the output directory before building
     rollupOptions: {
       external: ['react', 'react-dom', 'react/jsx-runtime'],
       output: {
@@ -46,8 +47,13 @@ export default defineConfig(({ mode }) => ({
         preserveModulesRoot: 'src',
         entryFileNames: '[name].js',
         chunkFileNames: '[name].js',
+        assetFileNames: (assetInfo) => {
+          if (assetInfo.name === 'style.css') return 'shared-ui.css';
+          return assetInfo.name || '';
+        }
       },
     },
+    cssCodeSplit: false, // This ensures all CSS is bundled into one file
   },
   resolve: {
     alias: {

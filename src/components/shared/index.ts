@@ -1,4 +1,7 @@
 
+// Import the Tailwind CSS
+import './styles.css';
+
 // Export all shared components
 export * from './Button';
 export * from './Card';

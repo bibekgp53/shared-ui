@@ -12,6 +12,7 @@ This guide explains how to use the built UI components directly in another appli
 This will generate the following in the `dist` folder:
 - ES modules in `dist/src/components/shared/`
 - TypeScript type definitions in `dist/types/`
+- CSS file at `dist/shared-ui.css`
 
 ## Using in Another Project
 
@@ -33,7 +34,13 @@ If both projects are on your local machine, you can reference the built files di
 
 2. Update your build tool (webpack, vite, etc.) to resolve this path alias
 
-3. Import components in your project:
+3. Import the CSS file in your main entry file (e.g., main.tsx):
+
+```jsx
+import '../path-to-this-repo/dist/shared-ui.css';
+```
+
+4. Import components in your project:
 
 ```jsx
 import { Button, Card } from 'shared-ui-components';
@@ -52,6 +59,7 @@ function MyComponent() {
 1. Build the library: `npm run build:lib`
 2. Copy the `dist` folder to your consuming project
 3. In your consuming project, add a path alias in your build configuration that points to the copied dist folder
+4. Import the CSS file in your main entry file
 
 ### Method 3: Local Package
 
@@ -67,6 +75,11 @@ function MyComponent() {
 ```
 
 3. Run `npm install` in your consuming project
+4. Import the CSS in your entry file:
+
+```jsx
+import 'shared-ui-components/dist/shared-ui.css';
+```
 
 ## Notes on Dependencies
 
@@ -78,9 +91,7 @@ Make sure your consuming project has these dependencies installed.
 
 ## Style Requirements
 
-The components use Tailwind CSS. Make sure your consuming project:
+The components use Tailwind CSS. The library exports its own CSS file with the necessary Tailwind classes, but your consuming project should:
 
-1. Has Tailwind CSS installed and configured
-2. Has compatible theme configuration (colors, spacing, etc.)
-
-You may want to copy the relevant Tailwind configuration from this project to ensure visual consistency.
+1. Have a compatible theme configuration (colors, spacing, etc.)
+2. If you're using Tailwind in your consuming project as well, ensure that your configuration extends or is compatible with the shared UI components theme
