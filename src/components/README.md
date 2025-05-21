@@ -43,6 +43,11 @@ function MyComponent() {
 
 Each component is customizable with props. Refer to the component's TypeScript definitions for all available props.
 
+## Requirements
+
+- React 19.1.0 or higher
+- React DOM 19.1.0 or higher
+
 ## Theme Customization
 
 This library uses Tailwind CSS for styling. You can customize the theme by extending your tailwind.config.js.

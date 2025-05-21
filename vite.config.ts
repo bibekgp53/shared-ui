@@ -28,7 +28,7 @@ export default defineConfig(({ mode }) => ({
     lib: {
       entry: path.resolve(__dirname, 'src/components/index.ts'),
       name: 'UIComponents',
-      fileName: (format) => `ui-components.${format}.js`,
+      fileName: (format) => `shared-ui.${format}.js`,
       formats: ['es'],
     },
     minify: false,
@@ -47,7 +47,7 @@ export default defineConfig(({ mode }) => ({
         entryFileNames: '[name].js',
         chunkFileNames: '[name].js',
         assetFileNames: (assetInfo) => {
-          if (assetInfo.name === 'style.css') return 'ui-components.css';
+          if (assetInfo.name === 'style.css') return 'shared-ui.css';
           return assetInfo.name || '';
         }
       },
