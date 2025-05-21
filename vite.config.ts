@@ -1,4 +1,3 @@
-
 import { defineConfig } from "vite";
 import react from "@vitejs/plugin-react-swc";
 import path from "path";
@@ -14,9 +13,7 @@ export default defineConfig(({ mode }) => ({
   plugins: [
     react({
       jsxImportSource: 'react',
-      plugins: [
-        ['swc-jsx-reactjs-19', { transform: (code: string) => code }]
-      ]
+      // Remove the reference to the non-existent plugin
     }),
     mode === 'development' && componentTagger(),
     dts({
