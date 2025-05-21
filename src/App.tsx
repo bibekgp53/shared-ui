@@ -1,10 +1,11 @@
 
 import React, { useState } from 'react';
 import { Button, Card, CardHeader, CardTitle, CardContent, CardFooter, Alert, Badge, Input, Text, Heading, ThemeToggle } from './components';
-import { CheckIcon, InfoIcon, AlertTriangleIcon, XCircleIcon } from 'lucide-react';
+import { CheckIcon, InfoIcon, AlertTriangleIcon, XCircleIcon, BookOpenIcon } from 'lucide-react';
 
 const App = () => {
   const [isAlertVisible, setIsAlertVisible] = useState(true);
+  const [isStorybookGuideVisible, setIsStorybookGuideVisible] = useState(true);
 
   return (
     <div className="min-h-screen p-4 md:p-8 bg-gray-50 dark:bg-gray-900 transition-colors duration-200">
@@ -23,6 +24,35 @@ const App = () => {
               onClose={() => setIsAlertVisible(false)}
             >
               This is our enhanced component library showcase with improved UI styling. Use Storybook for full documentation.
+            </Alert>
+          </Card>
+        )}
+
+        {isStorybookGuideVisible && (
+          <Card className="mb-8" variant="elevated">
+            <Alert 
+              title="Storybook Usage Guide" 
+              variant="success"
+              icon={<BookOpenIcon className="h-5 w-5" />}
+              onClose={() => setIsStorybookGuideVisible(false)}
+            >
+              <div className="space-y-4 pt-2">
+                <Text>
+                  <strong>How to use Storybook with this component library:</strong>
+                </Text>
+                <ol className="list-decimal list-inside space-y-2">
+                  <li>Start Storybook by running <code className="bg-gray-100 dark:bg-gray-800 px-1.5 py-0.5 rounded">npm run storybook</code> in your terminal</li>
+                  <li>View components in isolation at <code className="bg-gray-100 dark:bg-gray-800 px-1.5 py-0.5 rounded">http://localhost:6006</code></li>
+                  <li>Each component has a dedicated story file (e.g., <code className="bg-gray-100 dark:bg-gray-800 px-1.5 py-0.5 rounded">Button.stories.tsx</code>)</li>
+                  <li>Use the Controls panel to experiment with component props</li>
+                  <li>Refer to the Docs tab for detailed component documentation</li>
+                  <li>Create your own stories by following the pattern in existing story files</li>
+                  <li>Build Storybook for deployment using <code className="bg-gray-100 dark:bg-gray-800 px-1.5 py-0.5 rounded">npm run build-storybook</code></li>
+                </ol>
+                <Text className="text-sm text-gray-600 dark:text-gray-400 mt-2">
+                  For more information, refer to our developer documentation or the official <a href="https://storybook.js.org/docs/react/get-started/introduction" target="_blank" rel="noopener noreferrer" className="text-brand-600 dark:text-brand-400 hover:underline">Storybook documentation</a>.
+                </Text>
+              </div>
             </Alert>
           </Card>
         )}
