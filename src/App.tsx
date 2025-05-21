@@ -1,6 +1,6 @@
 
 import React from 'react';
-import { Button, Card, Alert, Badge, Input, Text, Heading, ThemeToggle } from './components/shared';
+import { Button, Card, Alert, Badge, Input, Text, Heading, ThemeToggle } from './components';
 
 const App = () => {
   return (

@@ -13,20 +13,20 @@ export default defineConfig(({ mode }) => ({
   plugins: [
     react(),
     dts({
-      include: ['src/components/shared/**/*.{ts,tsx}'],
+      include: ['src/components/**/*.{ts,tsx}'],
       exclude: ['**/*.test.tsx', '**/*.stories.tsx', '*.config.js', '*.config.ts', 'eslint.config.js', '**/node_modules/**'],
       outDir: 'dist/types',
       rollupTypes: true, // Consolidate types
       staticImport: true, // Convert dynamic imports to static for better type generation
       insertTypesEntry: true, // Automatically add types field to package.json
-      tsconfigPath: path.resolve(__dirname, './src/components/shared/tsconfig.json'),
+      tsconfigPath: path.resolve(__dirname, './src/components/tsconfig.json'),
     }),
   ],
   build: {
     lib: {
-      entry: path.resolve(__dirname, 'src/components/shared/index.ts'),
-      name: 'SharedUIComponents',
-      fileName: (format) => `shared-ui.${format}.js`,
+      entry: path.resolve(__dirname, 'src/components/index.ts'),
+      name: 'UIComponents',
+      fileName: (format) => `ui-components.${format}.js`,
       formats: ['es'],
     },
     minify: false,
@@ -45,7 +45,7 @@ export default defineConfig(({ mode }) => ({
         entryFileNames: '[name].js',
         chunkFileNames: '[name].js',
         assetFileNames: (assetInfo) => {
-          if (assetInfo.name === 'style.css') return 'shared-ui.css';
+          if (assetInfo.name === 'style.css') return 'ui-components.css';
           return assetInfo.name || '';
         }
       },
