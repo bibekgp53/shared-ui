@@ -15,7 +15,7 @@ export default defineConfig(({ mode }) => ({
     react({
       jsxImportSource: 'react',
       plugins: [
-        { name: 'swc-jsx-reactjs-19', transform: (code) => code }
+        ['swc-jsx-reactjs-19', { transform: (code: string) => code }]
       ]
     }),
     mode === 'development' && componentTagger(),
