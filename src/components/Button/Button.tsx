@@ -23,16 +23,16 @@ export const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
     ...props 
   }, ref) => {
     const variantStyles = {
-      primary: 'bg-brand-600 text-white hover:bg-brand-700 focus:ring-brand-500',
-      secondary: 'bg-gray-200 text-gray-900 hover:bg-gray-300 focus:ring-gray-400',
-      outline: 'bg-transparent border border-gray-300 hover:bg-gray-100 focus:ring-gray-300',
-      ghost: 'bg-transparent hover:bg-gray-100 focus:ring-gray-300',
-      link: 'bg-transparent text-brand-600 hover:underline focus:ring-brand-500 p-0',
-      destructive: 'bg-red-600 text-white hover:bg-red-700 focus:ring-red-500',
+      primary: 'bg-brand-600 text-white shadow-sm hover:bg-brand-700 focus:ring-brand-500',
+      secondary: 'bg-gray-200 text-gray-900 shadow-sm hover:bg-gray-300 focus:ring-gray-400',
+      outline: 'bg-transparent border border-gray-300 text-gray-700 hover:bg-gray-50 focus:ring-gray-300 dark:text-gray-300 dark:border-gray-600 dark:hover:bg-gray-800',
+      ghost: 'bg-transparent text-gray-700 hover:bg-gray-100 focus:ring-gray-300 dark:text-gray-300 dark:hover:bg-gray-800',
+      link: 'bg-transparent text-brand-600 hover:underline focus:ring-brand-500 p-0 dark:text-brand-400',
+      destructive: 'bg-red-600 text-white shadow-sm hover:bg-red-700 focus:ring-red-500',
     };
 
     const sizeStyles = {
-      sm: 'text-xs px-2.5 py-1.5 rounded',
+      sm: 'text-xs px-2.5 py-1.5 rounded-md',
       md: 'text-sm px-4 py-2 rounded-md',
       lg: 'text-base px-6 py-3 rounded-lg',
     };
@@ -40,7 +40,7 @@ export const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
     return (
       <button
         className={cn(
-          'font-medium focus:outline-none focus:ring-2 focus:ring-offset-2 inline-flex items-center justify-center transition-colors',
+          'font-medium focus-ring inline-flex items-center justify-center btn-transition',
           variantStyles[variant],
           sizeStyles[size],
           isLoading ? 'opacity-70 cursor-not-allowed' : '',

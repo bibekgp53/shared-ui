@@ -12,7 +12,7 @@ export const Card = React.forwardRef<HTMLDivElement, CardProps>(
     const variantStyles = {
       default: 'bg-white dark:bg-gray-800',
       bordered: 'bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700',
-      elevated: 'bg-white dark:bg-gray-800 shadow-md',
+      elevated: 'bg-white dark:bg-gray-800 card-shadow',
     };
 
     const paddingStyles = {
@@ -25,7 +25,7 @@ export const Card = React.forwardRef<HTMLDivElement, CardProps>(
     return (
       <div
         className={cn(
-          'rounded-lg',
+          'rounded-lg transition-all duration-200',
           variantStyles[variant],
           paddingStyles[padding],
           className
@@ -60,7 +60,7 @@ export const CardTitle = React.forwardRef<
 >(({ className, ...props }, ref) => (
   <h3
     ref={ref}
-    className={cn("text-lg font-semibold", className)}
+    className={cn("text-xl font-semibold tracking-tight", className)}
     {...props}
   />
 ));
@@ -95,7 +95,7 @@ export const CardFooter = React.forwardRef<
 >(({ className, ...props }, ref) => (
   <div
     ref={ref}
-    className={cn("flex items-center mt-4 pt-4 border-t", className)}
+    className={cn("flex items-center mt-6 pt-4 border-t border-gray-200 dark:border-gray-700", className)}
     {...props}
   />
 ));

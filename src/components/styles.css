@@ -3,4 +3,30 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Add any shared component specific styles here */
+@layer base {
+  :root {
+    --card-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  }
+  
+  .dark {
+    --card-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.3), 0 2px 4px -1px rgba(0, 0, 0, 0.18);
+  }
+}
+
+@layer components {
+  .btn-transition {
+    @apply transition-all duration-200 ease-in-out;
+  }
+  
+  .card-shadow {
+    box-shadow: var(--card-shadow);
+  }
+
+  .focus-ring {
+    @apply focus:outline-none focus:ring-2 focus:ring-offset-2;
+  }
+  
+  .input-focus-ring {
+    @apply focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2;
+  }
+}

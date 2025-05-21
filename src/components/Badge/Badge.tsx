@@ -10,13 +10,13 @@ export interface BadgeProps extends React.HTMLAttributes<HTMLDivElement> {
 export const Badge = React.forwardRef<HTMLDivElement, BadgeProps>(
   ({ className, variant = 'default', size = 'md', ...props }, ref) => {
     const variantStyles = {
-      default: 'bg-gray-100 text-gray-800 dark:bg-gray-700 dark:text-gray-300',
-      primary: 'bg-brand-100 text-brand-800 dark:bg-brand-800 dark:text-brand-100',
-      secondary: 'bg-purple-100 text-purple-800 dark:bg-purple-800 dark:text-purple-100',
-      success: 'bg-green-100 text-green-800 dark:bg-green-800 dark:text-green-100',
-      warning: 'bg-yellow-100 text-yellow-800 dark:bg-yellow-800 dark:text-yellow-100',
-      danger: 'bg-red-100 text-red-800 dark:bg-red-800 dark:text-red-100',
-      info: 'bg-blue-100 text-blue-800 dark:bg-blue-800 dark:text-blue-100',
+      default: 'bg-gray-100 text-gray-800 dark:bg-gray-700 dark:text-gray-300 border border-gray-200 dark:border-gray-600',
+      primary: 'bg-brand-100 text-brand-800 dark:bg-brand-900 dark:text-brand-300 border border-brand-200 dark:border-brand-800',
+      secondary: 'bg-purple-100 text-purple-800 dark:bg-purple-900 dark:text-purple-300 border border-purple-200 dark:border-purple-800',
+      success: 'bg-green-100 text-green-800 dark:bg-green-900 dark:text-green-300 border border-green-200 dark:border-green-800',
+      warning: 'bg-yellow-100 text-yellow-800 dark:bg-yellow-900 dark:text-yellow-300 border border-yellow-200 dark:border-yellow-800',
+      danger: 'bg-red-100 text-red-800 dark:bg-red-900 dark:text-red-300 border border-red-200 dark:border-red-800',
+      info: 'bg-blue-100 text-blue-800 dark:bg-blue-900 dark:text-blue-300 border border-blue-200 dark:border-blue-800',
     };
 
     const sizeStyles = {

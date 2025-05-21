@@ -10,9 +10,9 @@ export interface TextProps extends React.HTMLAttributes<HTMLParagraphElement> {
 export const Text = React.forwardRef<HTMLParagraphElement, TextProps>(
   ({ className, variant = 'body', as: Component = 'p', ...props }, ref) => {
     const variantStyles = {
-      body: 'text-base',
-      lead: 'text-lg text-gray-700 dark:text-gray-300',
-      small: 'text-sm',
+      body: 'text-base text-gray-700 dark:text-gray-300',
+      lead: 'text-lg leading-7 text-gray-700 dark:text-gray-300',
+      small: 'text-sm text-gray-600 dark:text-gray-400',
       muted: 'text-sm text-gray-500 dark:text-gray-400',
     };
 
@@ -64,7 +64,7 @@ export const Heading = React.forwardRef<HTMLHeadingElement, HeadingProps>(
       <Tag
         ref={ref}
         className={cn(
-          'font-bold tracking-tight',
+          'font-bold tracking-tight text-gray-900 dark:text-gray-100',
           sizeStyles[selectedSize as keyof typeof sizeStyles],
           className
         )}

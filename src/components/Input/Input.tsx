@@ -23,17 +23,20 @@ export const Input = React.forwardRef<HTMLInputElement, InputProps>(
       <div className="w-full">
         <div className="relative">
           {leftElement && (
-            <div className="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none text-gray-500">
+            <div className="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none text-gray-500 dark:text-gray-400">
               {leftElement}
             </div>
           )}
           <input
             type={type}
             className={cn(
-              'flex h-10 w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50',
+              'flex h-10 w-full rounded-md border bg-background px-3 py-2 text-sm transition-colors',
+              'border-gray-300 dark:border-gray-600',
+              'input-focus-ring focus-visible:ring-brand-500',
+              'placeholder:text-gray-500 dark:placeholder:text-gray-400',
               leftElement ? 'pl-10' : '',
               rightElement ? 'pr-10' : '',
-              error ? 'border-red-500 focus-visible:ring-red-500' : '',
+              error ? 'border-red-500 focus-visible:ring-red-500' : 'hover:border-gray-400 dark:hover:border-gray-500',
               className
             )}
             ref={ref}
@@ -45,8 +48,8 @@ export const Input = React.forwardRef<HTMLInputElement, InputProps>(
             </div>
           )}
         </div>
-        {error && <p className="mt-1 text-sm text-red-500">{error}</p>}
-        {hint && !error && <p className="mt-1 text-sm text-gray-500">{hint}</p>}
+        {error && <p className="mt-1.5 text-sm text-red-500">{error}</p>}
+        {hint && !error && <p className="mt-1.5 text-sm text-gray-500 dark:text-gray-400">{hint}</p>}
       </div>
     );
   }
