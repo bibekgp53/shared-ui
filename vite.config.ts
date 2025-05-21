@@ -46,8 +46,13 @@ export default defineConfig(({ mode }) => ({
         preserveModulesRoot: 'src',
         entryFileNames: '[name].js',
         chunkFileNames: '[name].js',
+        assetFileNames: (assetInfo) => {
+          if (assetInfo.name === 'style.css') return 'shared-ui.css';
+          return assetInfo.name || '';
+        }
       },
     },
+    cssCodeSplit: false, // This ensures all CSS is bundled into one file
   },
   resolve: {
     alias: {
