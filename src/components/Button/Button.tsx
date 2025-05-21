@@ -32,15 +32,15 @@ export const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
     };
 
     const sizeStyles = {
-      sm: 'text-xs px-2.5 py-1.5 rounded-md',
-      md: 'text-sm px-4 py-2 rounded-md',
-      lg: 'text-base px-6 py-3 rounded-lg',
+      sm: 'text-xs px-2.5 py-1 h-8 rounded-md',
+      md: 'text-sm px-4 py-2 h-10 rounded-md',
+      lg: 'text-base px-6 py-2.5 h-12 rounded-lg',
     };
 
     return (
       <button
         className={cn(
-          'font-medium focus-ring inline-flex items-center justify-center btn-transition',
+          'font-medium focus-ring inline-flex items-center justify-center btn-transition rounded-md',
           variantStyles[variant],
           sizeStyles[size],
           isLoading ? 'opacity-70 cursor-not-allowed' : '',
